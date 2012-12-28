@@ -6,7 +6,8 @@
             "userName": "warz-mobile",
             "realName": "A #Client Gateway",
             "channels": [
-                "##", "#beta"
+                "##",
+                "#beta"
             ]
         }
     }

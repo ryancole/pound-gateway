@@ -1,6 +1,6 @@
 
 var irc = require('irc'),
-    db = require('nano')('http://localhost:5984/pound');
+    db = require('nano')('http://ryan-server:5984/pound');
 
 // module exports
 exports.createClient = function createClient (server, nick, options) {
