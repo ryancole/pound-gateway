@@ -1,5 +1,5 @@
 
-var db = require('nano')('http://localhost:5984/pound-client');
+var db = require('nano')('http://localhost:5984/pound');
 
 exports.attach = function attach (router) {
     
