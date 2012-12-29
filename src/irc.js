@@ -18,7 +18,7 @@ exports.createClient = function createClient (server, nick, options) {
             message: msg,
             source: source,
             destination: destination,
-            timestamp: new Date
+            timestamp: Math.floor(Date.now() / 1000)
             
         });
         
