@@ -1,6 +1,6 @@
 
 var db = require('nano')('http://ryan-server:5984/pound'),
-    bridge = require('../bridge').bridge;
+    irc = require('../irc').client;
 
 exports.attach = function attach (router) {
     
@@ -45,8 +45,9 @@ function listMessages (req, res) {
 
 function createMessage (req, res) {
     
-    bridge.emit('send-message', { message: req.body.message });
-
+    // send the message to irc
+    irc.say('##', req.body.message);
+    
     return res.json({ ok: true });
     
 };

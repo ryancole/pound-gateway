@@ -1,10 +1,12 @@
 
 var irc = require('irc'),
     db = require('nano')('http://ryan-server:5984/pound'),
-    bridge = require('./bridge').bridge;
+    options = require(process.argv[2]);
 
 // module exports
-exports.createClient = function createClient (server, nick, options) {
+exports.client = createClient(options.irc.server, options.irc.nickname, options.irc.settings);
+
+function createClient (server, nick, options) {
     
     // init the irc client
     var client = new irc.Client(server, nick, options);
@@ -23,13 +25,6 @@ exports.createClient = function createClient (server, nick, options) {
             
         });
         
-    });
-
-    // listen for a message to send to irc
-    bridge.on('send-message', function (message) {
-
-        client.say('#beta', message.message);
-
     });
     
     return client;

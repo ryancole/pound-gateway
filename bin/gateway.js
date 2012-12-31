@@ -5,8 +5,7 @@ var irc = require('../src/irc'),
 function initialize(argv) {
     
     // initialize the irc client
-    var options = require(argv[2]),
-        client = irc.createClient(options.irc.server, options.irc.nickname, options.irc.settings);
+    var client = irc.client;
     
     // initialize the web server
     var server = http.createServer();
