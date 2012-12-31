@@ -1,11 +1,7 @@
 
-var irc = require('../src/irc'),
-    http = require('../src/http');
+var http = require('../src/http');
 
 function initialize(argv) {
-    
-    // initialize the irc client
-    var client = irc.client;
     
     // initialize the web server
     var server = http.createServer();

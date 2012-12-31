@@ -3,7 +3,7 @@ var irc = require('irc'),
     db = require('nano')('http://ryan-server:5984/pound'),
     options = require(process.argv[2]);
 
-// module exports
+// export an active irc client
 exports.client = createClient(options.irc.server, options.irc.nickname, options.irc.settings);
 
 function createClient (server, nick, options) {

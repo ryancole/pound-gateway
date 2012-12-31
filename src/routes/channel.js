@@ -1,6 +1,7 @@
 
-var db = require('nano')('http://ryan-server:5984/pound'),
-    irc = require('../irc').client;
+var irc = require('../irc').client,
+    db = require('nano')('http://ryan-server:5984/pound'),
+    underscore = require('underscore');
 
 exports.attach = function attach (router) {
     
@@ -15,7 +16,7 @@ exports.attach = function attach (router) {
 function listChannels (req, res) {
     
     // respond with a list of all channels
-    return res.json(irc.chans);
+    return res.json(underscore.values(irc.chans));
     
 };
 
