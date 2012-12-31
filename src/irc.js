@@ -1,6 +1,7 @@
 
 var irc = require('irc'),
-    db = require('nano')('http://ryan-server:5984/pound');
+    db = require('nano')('http://ryan-server:5984/pound'),
+    bridge = require('./bridge').bridge;
 
 // module exports
 exports.createClient = function createClient (server, nick, options) {
@@ -22,6 +23,13 @@ exports.createClient = function createClient (server, nick, options) {
             
         });
         
+    });
+
+    // listen for a message to send to irc
+    bridge.on('send-message', function (message) {
+
+        client.say('#beta', message.message);
+
     });
     
     return client;

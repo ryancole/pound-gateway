@@ -1,5 +1,6 @@
 
-var db = require('nano')('http://ryan-server:5984/pound');
+var db = require('nano')('http://ryan-server:5984/pound'),
+    bridge = require('../bridge').bridge;
 
 exports.attach = function attach (router) {
     
@@ -44,6 +45,8 @@ function listMessages (req, res) {
 
 function createMessage (req, res) {
     
-    return res.send(501);
+    bridge.emit('send-message', { message: req.body.message });
+
+    return res.json({ ok: true });
     
 };
