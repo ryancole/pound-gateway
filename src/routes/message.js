@@ -1,5 +1,5 @@
 
-var db = require('nano')('http://ryan-server:5984/pound'),
+var db = require('nano')('http://raidbossanalytics.com:5984/pound'),
     irc = require('../irc').client;
 
 exports.attach = function attach (router) {

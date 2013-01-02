@@ -1,6 +1,6 @@
 
 var irc = require('irc'),
-    db = require('nano')('http://ryan-server:5984/pound'),
+    db = require('nano')('http://raidbossanalytics.com:5984/pound'),
     options = require(process.argv[2]);
 
 // export an active irc client

@@ -1,6 +1,6 @@
 
 var irc = require('../irc').client,
-    db = require('nano')('http://ryan-server:5984/pound'),
+    db = require('nano')('http://raidbossanalytics.com:5984/pound'),
     underscore = require('underscore');
 
 exports.attach = function attach (router) {
