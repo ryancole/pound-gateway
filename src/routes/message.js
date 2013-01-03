@@ -53,7 +53,7 @@ function createMessage (req, res) {
         
         type: 'message',
         message: req.body.message,
-        source: 'Your Own Self',
+        source: irc.nick,
         destination: req.body.recipient,
         timestamp: Math.floor(Date.now() / 1000)
         
