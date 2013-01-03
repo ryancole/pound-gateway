@@ -1,12 +1,12 @@
 {
     "irc": {
         "server": "irc.betawarz.com",
-        "nickname": "warz-mobile",
+        "nickname": "ryan",
         "settings": {
-            "userName": "warz-mobile",
-            "realName": "A #Client Gateway",
+            "userName": "ryan",
+            "realName": "mobile irc gateway",
             "channels": [
-                "##"
+                "#beta"
             ]
         }
     }
