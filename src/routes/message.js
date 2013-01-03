@@ -46,8 +46,22 @@ function listMessages (req, res) {
 function createMessage (req, res) {
     
     // send the message to irc
-    irc.say('##', req.body.message);
-    
-    return res.json({ ok: true });
+    irc.say(req.body.recipient, req.body.message);
+
+    // push the received message onto the message queue
+    db.insert({
+        
+        type: 'message',
+        message: req.body.message,
+        source: 'Your Own Self',
+        destination: req.body.recipient,
+        timestamp: Math.floor(Date.now() / 1000)
+        
+    }, function (err, success) {
+
+        // respond with an accepted status
+        return res.send(201, { success: true });
+
+    });
     
 };
