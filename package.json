@@ -1,0 +1,31 @@
+{
+  "name": "pound-gateway",
+  "version": "0.0.1",
+  "description": "The IRC-to-HTTP gateway for #Client.",
+  "main": "index.js",
+  "bin": {
+    "pound-gateway": "gateway.js"
+  },
+  "directories": {
+    "example": "examples"
+  },
+  "dependencies": {
+    "express": "~3.0.5",
+    "irc": "~0.3.4",
+    "nano": "~3.3.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ryancole/pound-gateway.git"
+  },
+  "keywords": [
+    "irc"
+  ],
+  "author": "Ryan Cole",
+  "license": "BSD",
+  "readmeFilename": "readme.md"
+}
