@@ -14,16 +14,24 @@ function createClient (server, nick, options) {
     // add a listener for received messages
     client.addListener('message', function (source, destination, msg) {
         
-        // push the received message onto the message queue
-        db.insert({
-            
+        // format the received message for the database
+        var message = {
+
             type: 'message',
             message: msg,
             source: source,
+            highlighted: false,
             destination: destination,
             timestamp: Math.floor(Date.now() / 1000)
-            
-        });
+
+        };
+
+        // if this contains a nickname highlight make note of that
+        if (msg.toLowerCase().indexOf(client.nick.toLowerCase()) > -1)
+            message.highlighted = true;
+
+        // push the received message onto the message queue
+        db.insert(message);
         
     });
     

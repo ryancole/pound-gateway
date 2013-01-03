@@ -48,18 +48,25 @@ function createMessage (req, res) {
     // send the message to irc
     irc.say(req.body.recipient, req.body.message);
 
-    // push the received message onto the message queue
-    db.insert({
-        
+    // format the received message for the database
+    var message = {
+
         type: 'message',
         message: req.body.message,
         source: irc.nick,
+        highlighted: false,
         destination: req.body.recipient,
         timestamp: Math.floor(Date.now() / 1000)
-        
-    }, function (err, success) {
 
-        // respond with an accepted status
+    };
+
+    // if this contains a nickname highlight make note of that
+    if (req.body.message.toLowerCase().indexOf(irc.nick.toLowerCase()) > -1)
+        message.highlighted = true;
+
+    // write the message to the database
+    db.insert(message, function (err, success) {
+
         return res.send(201, { success: true });
 
     });
