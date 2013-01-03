@@ -1,25 +1,23 @@
 {
-  "name": "pound-gateway",
-  "version": "0.0.1",
-  "description": "The IRC-to-HTTP gateway for #Client.",
-  "main": "index.js",
-  "bin": {
-    "pound-gateway": "bin/gateway.js"
-  },
-  "dependencies": {
-    "express": "~3.0.5",
-    "irc": "~0.3.4",
-    "nano": "~3.3.4",
-    "underscore": "~1.4.3"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/ryancole/pound-gateway.git"
-  },
-  "keywords": [
-    "irc"
-  ],
-  "author": "Ryan Cole",
-  "license": "BSD",
-  "readmeFilename": "readme.md"
+    "name": "pound-gateway",
+    "version": "0.0.1",
+    "description": "The IRC-to-HTTP gateway for #Client.",
+    "main": "index.js",
+    "bin": {
+        "pound-gateway": "bin/gateway.js"
+    },
+    "dependencies": {
+        "express": "~3.0.5",
+        "irc": "~0.3.4",
+        "nano": "~3.3.4",
+        "underscore": "~1.4.3"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/ryancole/pound-gateway.git"
+    },
+    "keywords": ["irc"],
+    "author": "Ryan Cole",
+    "license": "BSD",
+    "readmeFilename": "readme.md"
 }
