@@ -17,6 +17,7 @@ exports.createServer = function createServer () {
     
     // specify middleware
     server.use(express.bodyParser());
+    server.use(express.methodOverride());
     
     // attach router handlers
     routes.users.attach(server);

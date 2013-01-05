@@ -10,22 +10,34 @@ exports.attach = function attach (router) {
     
     // post requests
     router.post('/channel', joinChannel);
+
+    // delete requests
+    router.delete('/channel', leaveChannel);
     
 };
 
 function listChannels (req, res) {
     
-    // respond with a list of all channels
     return res.json(underscore.values(irc.chans));
     
 };
 
 function joinChannel (req, res) {
 
-    // join the specified channel
-    irc.join(req.body.channel);
+    irc.join(req.body.channel, function (nick, message) {
 
-    // respond with an accepted status
-    return res.send(202);
+        return res.send(202, { success: true });
+
+    });
+
+};
+
+function leaveChannel (req, res) {
+
+    irc.part(req.query.channel, function (nick, reason, msg) {
+
+        return res.send(202, { success: true });
+
+    });
 
 };
